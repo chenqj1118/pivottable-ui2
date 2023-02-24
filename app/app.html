@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>正在打开透视表 ...</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+    <script type="text/javascript" src="../libs/plotly.js-1.57.1/dist/plotly.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../libs//jquery-3.5.1/jquery-3.5.1.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../libs/PapaParse-5.3.0/papaparse.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../libs/jquery-table2excel-1.1.2/dist/jquery.table2excel.js" charset="utf-8"></script>
+    
+    <script type="text/javascript" src="../libs/jquery-ui-1.12.1/jquery-ui.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui-1.12.1/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui-1.12.1/jquery-ui.theme.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../src/pivot.css"/>
+    <script type="text/javascript" src="../src/pivot.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../src/pivot.zh.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../src/plotly_renderers.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="./nrecopivottableext.css?v20180718"/>
+    <link rel="stylesheet" type="text/css" href="./app.css"/>
+
+    <style>
+      body {
+        font-family: Verdana;
+        font-size: 14px;
+      }
+      .button {
+      	margin: 0;
+        padding: 0 11px;
+        height: 24px;
+        min-height: 24px;
+        min-width: 72px;
+        background-color: #fff;
+        border-color: rgba(0, 0, 0, 0.3);
+        border-width: 1px;
+        line-height: 22px;
+        color: rgba(0, 0, 0, 0.7);
+        cursor: pointer;
+        border-radius: 3px;
+      }
+      .dialog {
+        line-height: 32px;
+      }
+      #msg-dialog {
+      	line-height: 24px;
+        padding-right: 20px;
+      }
+      #confirm-dialog {
+      	line-height: 24px;
+      }
+      .dialog .buttons {
+	    position: absolute;
+	    bottom: 10px;
+	    right: 10px;
+      }
+      .dialog .validate-error {
+        color: red;
+      }
+      span.button-separator {
+        color:white;
+        font-weight: bold;
+      }
+      #toolbar{
+        background: #a81e32;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="toolbar" style="display: none">
+      	<button id="save-config" class="button">保存配置 ...</button>
+      	<button id="apply-saved-config" class="button">加载配置 ...</button>
+      	<span class="button-separator">|</span>
+      	<button id="export-excel" class="button">Excel 导出</button>
+      	<span class="button-separator">|</span>
+      	<button id="manage-settings" class="button">设置 ...</button>
+      </div>
+      <div id="output">正在启动透视表 ...</div>
+    </div>
+    <!-- 对话框 -->
+    <div id="msg-dialog" class="dialog" title="信息" style="display:none"></div>
+    <div id="confirm-dialog" class="dialog" title="确认" style="display:none">
+    	<div class="confirm-message"></div>
+    	<div class="buttons">
+    		<button class="confirm-yes button">是</button>
+    		<button class="confirm-no button">否</button>
+    	</div>
+    </div>
+    <div id="save-config-dialog" class="dialog" title="保存配置" style="display:none">
+    	<div class="save-config-message">指定配置名称以进行保存:</div>
+    	<input class="save-config-name" type="text" placeholder="请输入名称" style="width:100%"/>
+    	<div class="buttons">
+    	    <span class="validate-error"></span>
+    		<button class="save-config-ok button">确定</button>
+    		<button class="save-config-cancel button">取消</button>
+    	</div>
+    </div>
+    <div id="apply-config-dialog" class="dialog" title="加载配置" style="display:none">
+    	<div class="apply-config-message">选择已保存的配置：</div>
+    	<select class="apply-config-list" style="width:100%"></select>
+    	<div class="buttons">
+    	    <span class="validate-error"></span>
+    		<button class="apply-config-ok button">确定</button>
+    		<button class="apply-config-cancel button">取消</button>
+    	</div>
+    </div>
+    <div id="manage-settings-dialog" class="dialog" title="设置" style="display:none">
+    	<button class="manage-settings-delete-config button">删除配置 ...</button>
+    	<button class="manage-settings-restore button">恢复默认配置</button>
+    	<div class="buttons">
+    	    <span class="validate-error"></span>
+    		<button class="manage-settings-close button">关闭</button>
+    	</div>
+    </div>
+    <div id="delete-config-dialog" class="dialog" title="删除配置" style="display:none">
+    	<div class="delete-config-message">选择已保存的配置：</div>
+    	<select class="delete-config-list" style="width:100%"></select>
+    	<div class="buttons">
+    	    <span class="validate-error"></span>
+    		<button class="delete-config-ok button">确定</button>
+    		<button class="delete-config-cancel button">取消</button>
+    	</div>
+    </div>
+    <script type="text/javascript" src="./nrecopivottableext.js?v20180718" charset="utf-8"></script>
+    <script type="text/javascript" src="./app.js" charset="utf-8"></script>
+  </body>
+</html>
