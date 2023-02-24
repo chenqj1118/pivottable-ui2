@@ -10,7 +10,7 @@
 >
 > 其中关于`PivotTable.js`的简介，详见文档 https://github.com/chenqj1118/pivottable-ui2/tree/main/doc/PivotTable.js%E7%AE%80%E4%BB%8B.md
 >
-> ![img](.\img\719779-20220310180219393-525604363.gif)
+> ![img](.\doc\img\719779-20220310180219393-525604363.gif)
 > 更多演示详见： https://pivottable.js.org/examples/ 
 
 
